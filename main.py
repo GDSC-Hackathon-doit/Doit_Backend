@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 import routers as article_router
-# from . import models, database
-# models.Base.metadata.create_all(bind=database.engine)
+from . import models, database
+models.Base.metadata.create_all(bind=database.engine)
 
 app = FastAPI()
 app.include_router(article_router.router, prefix="/article", tags=["article"])
