@@ -4,6 +4,10 @@ import models, database
 models.Base.metadata.create_all(bind=database.engine)
 
 app = FastAPI()
+
+@app.get("/")
+return "Hello Hello"
+
 app.include_router(article_router.router, prefix="/article", tags=["article"])
 
 
