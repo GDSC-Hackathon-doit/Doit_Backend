@@ -6,7 +6,9 @@ models.Base.metadata.create_all(bind=database.engine)
 app = FastAPI()
 
 @app.get("/")
-return "Hello Hello"
+async def root():
+    return {"message": "Welcome to my API!"}
+
 
 app.include_router(article_router.router, prefix="/article", tags=["article"])
 
